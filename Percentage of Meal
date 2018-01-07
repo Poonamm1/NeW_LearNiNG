@@ -9,16 +9,16 @@ using namespace std;
 int main() {
     /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
     double MealCost;
-    double TipPer;
-    double TaxPer;
+    int TipPer;
+    int TaxPer;
     int TotalCost;
     cin>> MealCost;
     cin>>TipPer;
     cin>> TaxPer;
-    TipPer =MealCost*TipPer/100;
-    TaxPer=MealCost*TaxPer/100;
-    TotalCost =MealCost+TipPer+TaxPer;
+    double Tip =MealCost*TipPer/100;
+    double Tax=MealCost*TaxPer/100;
+ TotalCost =(int)round(MealCost+Tip+Tax);
     
-    cout<<"The total meal cost is "<<round(TotalCost)<<" dollars.";
+    cout<<"The total meal cost is "<<TotalCost<" dollars.";
     return 0;
 }
