@@ -1,0 +1,24 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    double MealCost;
+    double TipPer;
+    double TaxPer;
+    int TotalCost;
+    cin>> MealCost;
+    cin>>TipPer;
+    cin>> TaxPer;
+    TipPer =MealCost*TipPer/100;
+    TaxPer=MealCost*TaxPer/100;
+    TotalCost =MealCost+TipPer+TaxPer;
+    
+    cout<<"The total meal cost is "<<round(TotalCost)<<" dollars.";
+    return 0;
+}
