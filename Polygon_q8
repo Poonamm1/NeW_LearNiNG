@@ -1,0 +1,17 @@
+
+'''
+
+import math 
+def polygon(n,s):
+    print n*s**2 / (4 *math.tan(math.pi / n))
+
+polygon(5,7)
+polygon(7,3)
+''''
+
+import math 
+def polygon(n,s):
+    print n*s**2 / (4 *math.tan(math.pi / n))
+
+polygon(5,7)
+polygon(7,3)
