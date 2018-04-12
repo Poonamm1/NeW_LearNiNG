@@ -1,0 +1,92 @@
+# template for "Stopwatch: The Game"
+
+# define global variables
+
+import simplegui
+timer_clock = False
+tenth_milisec = 0
+seconds = 0
+time = 0
+count_win = 0
+count_all = 0
+
+
+
+# define helper function format that converts time
+# in tenths of seconds into formatted string A:BC.D
+def format(t):
+    #global tenth_milisec
+    #tenth_milisec = 0
+    global tenth_milisec,seconds
+    tenth_milisec = t % 10
+    total_sec = t / 10
+    minutes = total_sec / 60 
+    seconds = total_sec % 60
+    if seconds < 10:
+        return str(minutes) +":0"+ str(seconds) + ":"+str(tenth_milisec)  
+    else:
+        return str(minutes) +":"+ str(seconds) + ":"+str(tenth_milisec)
+    
+# define event handlers for buttons; "Start", "Stop", "Reset"
+def start():
+    global timer_clock
+    if timer_clock == False:
+        timer.start()
+        timer_clock = True
+    
+
+def stop():
+    global timer_clock, count_win,count_all, tenth_milisec,seconds
+    if timer_clock == True:
+        timer.stop()
+        count_all += 1
+        if tenth_milisec == 0 and seconds > 0:
+            count_win += 1  
+        timer_clock =  False
+       
+    
+def reset():
+    global timer_clock, time
+    if timer_clock == True:
+        timer.stop()
+        time = 0
+        timer_clock = False
+        format(time)
+        
+
+
+# define event handler for timer with 0.1 sec interval
+
+def TimerInterval():
+    global time
+    time +=1
+    format(time)
+
+# define draw handler
+def draw(canvas):
+    global time, count_win, count_all
+    canvas.draw_text(format(time),(90,150),50, "white")
+    canvas.draw_text(str(count_win) + "/" + str(count_all),(230,40),30, "Yellow")
+    
+    
+# create frame
+
+
+# register event handlers
+
+
+# start frame
+
+
+frame = simplegui.create_frame("Stop watch " , 300, 300)
+
+button1 = frame.add_button("Start", start, 70)
+button1 = frame.add_button("Stop", stop, 70)
+button1 = frame.add_button("Reset", reset, 70)
+timer = simplegui.create_timer(100,TimerInterval)
+frame.set_draw_handler(draw)
+
+
+# Please remember to review the grading rubric
+
+frame.start()
