@@ -1,0 +1,26 @@
+# Demonstration of own image
+
+import simplegui
+
+
+IMAGE = simplegui.load_image("https://i.imgur.com/ffJMFs9.jpg")
+IMAGE_WIDTH = IMAGE.get_width()
+IMAGE_HEIGHT = IMAGE.get_height()
+FRAME_WIDTH = 500
+FRAME_HEIGHT = 600
+
+#draw image
+def draw(canvas):
+    # Draw map
+    canvas.draw_image(IMAGE, [IMAGE_WIDTH / 2, IMAGE_HEIGHT / 2], [IMAGE_WIDTH, IMAGE_HEIGHT], [FRAME_WIDTH / 2, FRAME_HEIGHT / 2], (FRAME_WIDTH, FRAME_HEIGHT))
+
+    
+# Create frame for scaled map
+frame = simplegui.create_frame("Get your own image", FRAME_WIDTH, FRAME_HEIGHT)
+
+# register even handlers
+#frame.set_mouseclick_handler(click)    
+frame.set_draw_handler(draw)
+
+# Start frame
+frame.start()
