@@ -1,0 +1,18 @@
+def appendsums(lst):
+    '''
+    repeatedly append the sum of the current last three elements of list to list,
+    loops for 25 times
+    '''
+    for loop in range(25):
+        #print str(loop) + "Loop value"
+        #new_last = sum(lst[len(lst) - 3:])
+        sum1 =  lst[-1] + lst[-2] + lst [-3]
+        lst.append(sum1)
+    return lst
+
+
+# test it: should print out '230'
+sum_three = [0, 1, 2]
+appendsums(sum_three) 
+print '10 sum :' ,sum_three[10]
+print '20 sum :', sum_three[20]
